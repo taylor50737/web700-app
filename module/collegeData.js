@@ -41,7 +41,7 @@ const initialize = () => {
         getCoursesData()
           .then((coursesData) => {
             dataCollection = new Data(studentsData, coursesData);
-            resolve(dataCollection);
+            resolve();
           })
           .catch((err) => {
             console.log(err);
@@ -56,7 +56,7 @@ const getAllStudents = () => {
     if (dataCollection.students.length !== 0) {
       resolve(dataCollection.students);
     } else {
-      reject("No students results returned");
+      reject("no results");
     }
   });
 };
@@ -69,7 +69,7 @@ const getTAs = () => {
       });
       resolve(TAsData);
     } else {
-      reject("No TAs results returned");
+      reject("no results");
     }
   });
 };
@@ -79,7 +79,7 @@ const getCourses = () => {
     if (dataCollection.courses.length !== 0) {
       resolve(dataCollection.courses);
     } else {
-      reject("No courses results returned");
+      reject("no results");
     }
   });
 };
@@ -92,7 +92,7 @@ const getStudentsByCourse = (course) => {
       });
       resolve(studentByCourse);
     } else {
-      reject("No students by course result returned");
+      reject("no results");
     }
   });
 }
@@ -105,7 +105,7 @@ const getStudentByNum = (num) => {
       });
       resolve(studentByNum[0]);
     } else {
-      reject("No students by number result returned");
+      reject("no results");
     }
   })
 }

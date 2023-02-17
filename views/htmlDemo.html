@@ -34,78 +34,160 @@
 
 
 					<!-- Start your code here -->
-					<header>
-						<h3>Table </h3>
-						<table>
-							<caption></caption>
-							<thead>
-								<tr>
-									<th></th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td></td>
-									<td></td>
-								</tr>
-							</tfoot>
-						</table>
-						<p></p>
-					</header>
-					
-					<header>
-						<h3>List</h3>
-						<ol>
-							<li></li>
-							<li></li>
-							<li>
-								<ul>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-							</li>
-							<li></li>
-							<li></li>
-						</ol>
-						<p></p>
-					</header>
+					<h3>Tables</h3>
+					<table border>
+						<caption>Table 1: Apple Monthly Sales Report</caption>
+						<thead>
+						  	<tr>
+								<th rowspan="2">Product</th>
+								<th colspan="2">December</th>
+								<th colspan="2">January</th>
+								<th colspan="2">February</th>
+						  	</tr>
+						  	<tr>
+								<th>Units Sold</th>
+								<th>Revenue</th>
+								<th>Units Sold</th>
+								<th>Revenue</th>
+								<th>Units Sold</th>
+								<th>Revenue</th>
+						  	</tr>
+						</thead>
+						<tbody>
+						  	<tr>
+								<td>iPhone 14</td>
+								<td>100</td>
+								<td>$109,900</td>
+								<td>80</td>
+								<td>$87,920</td>
+								<td>120</td>
+								<td>$131,880</td>
+						  	</tr>
+						  	<tr>
+								<td>MacBook Pro 13"</td>
+								<td>50</td>
+								<td>$84,950</td>
+								<td>70</td>
+								<td>$118,930</td>
+								<td>60</td>
+								<td>$101,940</td>
+						 	 </tr>
+						  	<tr>
+								<td>iPad Pro</td>
+								<td>75</td>
+								<td>$112,425</td>
+								<td>60</td>
+								<td>$89,940</td>
+								<td>80</td>
+								<td>$119,920</td>
+						  	</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>Monthly Total</td>
+								<td>225</td>
+								<td>$329,700</td>
+								<td>210</td>
+								<td>$296,790</td>
+								<td>260</td>
+								<td>$353,740</td>
+							</tr>
+						</tfoot>
+					</table>
+			
+					<table border>
+						<caption>Table 2: Employee Information</caption>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Department</th>
+								<th>Position</th>
+								<th>Salary</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="2">Jodio Joestar</td>
+								<td>Marketing</td>
+								<td rowspan="2">Manager</td>
+								<td rowspan="2">$150,000</td>
+							</tr>
+							<tr>
+								<td>Sales</td>
+							</tr>
+							<tr>
+								<td>Paco Lovelantes</td>
+								<td>HR</td>
+								<td>Recruiter</td>
+								<td>$60,000</td>
+							</tr>
+							<tr>
+								<td>Rahul Viktor</td>
+								<td>IT</td>
+								<td>Full-stack Developer</td>
+								<td>$100,000</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3">Total</td>
+								<td>$310,000</td>
+							</tr>
+						</tfoot>
+					</table>
+					<p>
+						Table 1 showed an Apple monthly sales report with three rows of product data, each broken down by sales and revenue for three months.
+					</p>
+					<p>
+						Table 2 showed a simple employee information table with three rows of employee data including their names, department, position and salary.
+					</p>
+				
+					<h3>Lists</h3>
+					<ul>
+						<li>Apples</li>
+						<li>Oranges</li>
+						<li>Bananas</li>
+						<li>Grapes</li>
+						<li>
+						  Mixed Berries:
+						  <ol>
+							<li>Strawberries</li>
+							<li>Raspberries</li>
+							<li>Blueberries</li>
+						  </ol>
+						</li>
+					  </ul>					  
+					<p>The list listed out different kinds of fruits in unordered list form. 
+						In mixed berries, it specified the three kinds of berries in ordered list form.
+					</p>
 
-					<header>
-						<h3>Images</h3>
-						<img src="./public/image/Snowboarder_in_halfpipe.jpg" alt="Snowboarder in half pipe">
-						<img alt="">
-						<img alt="">
-						<p></p>
-					</header>
+					<h3>Images</h3>
+					<br>
+					<img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/800px-Tottenham_Hotspur.svg.png" alt="My favorite football club" height="300"><br><br>
+					<img src="https://digitalhub.fifa.com/transform/d93104bb-f6f3-45df-b98e-9760a5a89baa/Argentina-v-France-Final-FIFA-World-Cup-Qatar-2022?io=transform:fill,height:648,width:980&quality=100" alt="Lionel Messi winning the world cup" height="500"><br><br>
+					<img src="https://ntvb.tmsimg.com/assets/p8696131_b_h10_aa.jpg?w=1280&h=720" alt="My favorite TV show" height="500">
+					<p>
+						Image 1 showed the icon of my favorite football club - <b>Tottenham Hotspur.</b><br>
+						Image 2 showed Argentina won the World Cup.<br>
+						Image 3 showed one of the best TV show in history.
+					</p>
 
-					<header>
-						<h3>Audio</h3>
-						<audio controls>
-							<source src="./public/audio/sample-audio.ogg" type="audio/ogg">
-							<source src="./public/audio/sample-audio.mp3" type="audio/mpeg">
-							Your browser does not support the audio element.
-						</audio>
-						<p></p>
-					</header>
+					<h3>Audio</h3>
+					<audio controls>
+						<source src="../public/audio/MaryOnACross.ogg" type="audio/ogg">
+						<source src="../public/audio/MaryOnACross.mp3" type="audio/mpeg">
+						Your browser does not support the audio element.
+					</audio>
+					<p>The chorus of the song <b>Mary On A Cross</b> from one of my favorite band - <b>Ghost</b></p>
 
-					<header>
-						<h3>Video</h3>
-						<video width="320" height="240" controls>
-							<source src="./public/video/sample-video.mp4" type="video/mp4">
-							<source src="./public/video/sample-video.ogg" type="video/ogg">
-							<source src="./public/video/sample-video.webm" type="webm">
-						  	Your browser does not support the video tag.
-						</video>
-						<p></p>
-					</header>
+					<h3>Video</h3>
+					<video width="620" height="350" controls>
+						<source src="../public/video/frog_laughing_meme.mp4" type="video/mp4">
+						<source src="../public/video/frog_laughing_meme.ogg" type="video/ogg">
+						<source src="../public/video/frog_laughing_meme.webm" type="webm">
+						Your browser does not support the video tag.
+					</video>
+					<p>Just a clip of a frog laughing</p>
 					<!-- End your code here  -->
 
 
