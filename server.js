@@ -10,7 +10,7 @@
 
 const HTTP_PORT = process.env.PORT || 8080; 
 const express = require("express"); 
-const app = express(); 
+const app = express();
 const path = require("path");
 const collegeData = require("./module/collegeData");
 const initialize = collegeData.initialize;
@@ -19,9 +19,12 @@ const getTAs = collegeData.getTAs;
 const getCourses = collegeData.getCourses;
 const getStudentsByCourse = collegeData.getStudentsByCourse;
 const getStudentByNum = collegeData.getStudentByNum;
+const addStudent = collegeData.addStudent;
 
 initialize()
 .then(() => {
+    app.use(express.urlencoded({ extended: true }));
+
     app.use("/public", express.static(__dirname + "/public"));
 
     app.get("/", (req, res) => {     
@@ -34,6 +37,10 @@ initialize()
     
     app.get("/htmlDemo", (req, res) => {     
         res.sendFile(__dirname + "/views/htmlDemo.html"); 
+    });  
+
+    app.get("/students/add", (req, res) => {     
+        res.sendFile(__dirname + "/views/addStudent.html"); 
     });  
     
     app.get("/students", (req, res) => {
@@ -86,6 +93,14 @@ initialize()
         .catch((err) => {
             res.json({ message: err });
         });
+    });
+    
+    app.post("/students/add", (req, res) => {
+        const studentData = req.body;
+        addStudent(studentData)
+        .then(
+            res.redirect("/students")
+        );
     });
 
     app.get('*', (req, res) => {

@@ -1,0 +1,15 @@
+:root {
+    /* You can change the color of whole website by only changing the color-base-hue variable */
+    --color-base-hue: 200;
+    --color-header: hsl(var(--color-base-hue), 100%, 80%);
+    --color-header-shadow: hsl(var(--color-base-hue), 100%, 30%);
+    --color-anchor: hsl(var(--color-base-hue), 100%, 40%);
+    --color-anchor-hover: hsl(var(--color-base-hue), 100%, 60%);
+    --color-navbar-dark: hsl(calc(var(--color-base-hue) + 5), 100%, 20%);
+    --color-navbar-light: hsl(var(--color-base-hue), 100%, 28%);
+    --color-background-dark: hsl(var(--color-base-hue), 100%, 8%);
+    --color-background-light: hsl(var(--color-base-hue), 100%, 16%);
+    --color-text-light: hsl(var(--color-base-hue), 100%, 87%);
+    --color-pri-btn: hsl(calc(var(--color-base-hue) - 90), 100%, 24%);
+    --color-pri-btn-hover: hsl(calc(var(--color-base-hue) - 100), 100%, 38%);
+}  
