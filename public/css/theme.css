@@ -25,6 +25,7 @@ body {
     font-family: "Gotham Rounded";
     font-size: 1.5rem;
     color: var(--color-text-light);
+    overflow: auto;
 }
 
 h1, h2, h3, h4, h5, h6, legend {
@@ -55,6 +56,12 @@ legend {
 img {
     width: 100%;
     height: auto;
+}
+
+.navbar-dark .navbar-brand {
+    font-size: 2.5rem;
+    color: var(--color-header);
+    text-shadow: 2px 2px var(--color-header-shadow);
 }
 
 .vaultBoy {
