@@ -23,7 +23,7 @@ body {
     );
     background-size: cover;
     font-family: "Gotham Rounded";
-    font-size: 20px;
+    font-size: 1.5rem;
     color: var(--color-text-light);
 }
 
@@ -36,6 +36,7 @@ h1, h2, h3, h4, h5, h6, legend {
 table {
     table-layout: fixed;
     width: 100%;
+    font-size: 1.3rem;
 }
 th, td {
     width: 25%;
@@ -49,6 +50,11 @@ tbody tr:nth-child(odd){
 legend {
     padding: 2rem 0;
     font-size: 2rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }
 
 .container {
