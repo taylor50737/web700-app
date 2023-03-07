@@ -112,11 +112,12 @@ const getStudentByNum = (num) => {
 
 const addStudent = (studentData) => {
   return new Promise((resolve, reject) => {
-    if (studentData.TA == "on") {
+    if (studentData.TA === "on") {
       studentData.TA = true;
     } else {
       studentData.TA = false;
     }
+    studentData.course = +studentData.course;
     studentData.studentNum = dataCollection.students.length + 1;
     resolve(dataCollection.students.push(studentData));
   })
