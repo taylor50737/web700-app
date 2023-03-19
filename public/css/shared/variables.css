@@ -7,6 +7,7 @@
     --color-anchor-hover: hsl(var(--color-base-hue), 100%, 60%);
     --color-navbar-dark: hsl(calc(var(--color-base-hue) + 5), 100%, 20%);
     --color-navbar-light: hsl(var(--color-base-hue), 100%, 28%);
+    --color-hr-dark: hsl(calc(var(--color-base-hue) + 5), 100%, 20%);
     --color-background-dark: hsl(var(--color-base-hue), 100%, 8%);
     --color-background-light: hsl(var(--color-base-hue), 100%, 16%);
     --color-text-light: hsl(var(--color-base-hue), 100%, 87%);

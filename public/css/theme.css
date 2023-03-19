@@ -34,14 +34,35 @@ h1, h2, h3, h4, h5, h6, legend {
     text-shadow: 2px 2px var(--color-header-shadow);
 }
 
-table {
+.htmlDemoTable {
     table-layout: fixed;
     width: 100%;
     font-size: 1.3rem;
 }
-th, td {
+.htmlDemoTable .htmlDemoTable th, .htmlDemoTable td {
     width: 25%;
     padding: 10px;
+}
+
+.studentsTable {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.studentsTable th, .studentsTable td{
+    height: 3rem;
+    padding: 6px;
+}
+
+.coursesTable {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.coursesTable th, .coursesTable td{
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 8rem;
 }
 
 tbody tr:nth-child(odd){
@@ -51,6 +72,10 @@ tbody tr:nth-child(odd){
 legend {
     padding: 2rem 0;
     font-size: 2rem;
+}
+
+hr {
+    border: 1px solid var(--color-hr-dark);
 }
 
 img {
@@ -73,7 +98,8 @@ img {
 
 .container {
     margin: 0 auto;
-    padding: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .btn-primary {
@@ -89,3 +115,4 @@ img {
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     transform: translateY(-7px);
 }
+

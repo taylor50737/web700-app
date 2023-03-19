@@ -61,18 +61,18 @@ const getAllStudents = () => {
   });
 };
 
-const getTAs = () => {
-  return new Promise((resolve, reject) => {
-    if (dataCollection.students.length !== 0) {
-      const TAsData = dataCollection.students.filter((el) => {
-        return el.TA === true;
-      });
-      resolve(TAsData);
-    } else {
-      reject("no results");
-    }
-  });
-};
+// const getTAs = () => {
+//   return new Promise((resolve, reject) => {
+//     if (dataCollection.students.length !== 0) {
+//       const TAsData = dataCollection.students.filter((el) => {
+//         return el.TA === true;
+//       });
+//       resolve(TAsData);
+//     } else {
+//       reject("no results");
+//     }
+//   });
+// };
 
 const getCourses = () => {
   return new Promise((resolve, reject) => {
@@ -90,7 +90,11 @@ const getStudentsByCourse = (course) => {
       const studentByCourse = dataCollection.students.filter((el) => {
         return el.course === course;
       });
-      resolve(studentByCourse);
+      if (studentByCourse.length !== 0) {
+        resolve(studentByCourse);
+      } else {
+        reject("no results");
+      }
     } else {
       reject("no results");
     }
@@ -110,6 +114,19 @@ const getStudentByNum = (num) => {
   })
 }
 
+const getCourseById = (id) => {
+  return new Promise((resolve, reject) => {
+    if (dataCollection.courses.length !== 0) {
+      const courseById = dataCollection.courses.filter((el) => {
+        return el.courseId === id;
+      });
+      resolve(courseById[0]);
+    } else {
+      reject("query returned 0 result")
+    }
+  })
+}
+
 const addStudent = (studentData) => {
   return new Promise((resolve, reject) => {
     if (studentData.TA === "on") {
@@ -123,12 +140,30 @@ const addStudent = (studentData) => {
   })
 }
 
+const updateStudent = (studentData) => {
+  return new Promise((resolve) => {
+    if (studentData.TA === "on") {
+      studentData.TA = true;
+    } else {
+      studentData.TA = false;
+    }
+    studentData.studentNum = +studentData.studentNum;
+    studentData.course = +studentData.course;
+    if (studentData.studentNum === dataCollection.students[studentData.studentNum - 1].studentNum) {
+      Object.assign(dataCollection.students[studentData.studentNum - 1], studentData);
+      resolve();
+    }
+  })
+}
+
 module.exports = { 
   initialize, 
   getAllStudents, 
-  getTAs, 
-  getCourses, 
+  // getTAs,
+  getCourses,
+  getCourseById,
   getStudentsByCourse, 
   getStudentByNum,
-  addStudent
+  addStudent,
+  updateStudent
 };
