@@ -1,71 +1,71 @@
 @font-face {
-    font-family: 'Gotham Rounded';
-    src: url('/public/fonts/GothamRounded-Bold.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Gotham Rounded";
+  src: url("/public/fonts/GothamRounded-Bold.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded Book';
-    src: url('/public/fonts/GothamRounded-Book.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-Book.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Gotham Rounded Book";
+  src: url("/public/fonts/GothamRounded-Book.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded';
-    src: url('/public/fonts/GothamRounded-BoldItalic.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Gotham Rounded";
+  src: url("/public/fonts/GothamRounded-BoldItalic.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded';
-    src: url('/public/fonts/GothamRounded-Medium.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Gotham Rounded";
+  src: url("/public/fonts/GothamRounded-Medium.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded Book';
-    src: url('/fonts/GothamRounded-BookItalic.woff2') format('woff2'),
-    url('/fonts/GothamRounded-BookItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Gotham Rounded Book";
+  src: url("/fonts/GothamRounded-BookItalic.woff2") format("woff2"),
+    url("/fonts/GothamRounded-BookItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded';
-    src: url('/public/fonts/GothamRounded-LightItalic.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Gotham Rounded";
+  src: url("/public/fonts/GothamRounded-LightItalic.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded';
-    src: url('/public/fonts/GothamRounded-Light.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Gotham Rounded";
+  src: url("/public/fonts/GothamRounded-Light.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Gotham Rounded';
-    src: url('/public/fonts/GothamRounded-MediumItalic.woff2') format('woff2'),
-    url('/public/fonts/GothamRounded-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Gotham Rounded";
+  src: url("/public/fonts/GothamRounded-MediumItalic.woff2") format("woff2"),
+    url("/public/fonts/GothamRounded-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }

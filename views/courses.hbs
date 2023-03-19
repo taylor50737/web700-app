@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <br>
+    <br />
     <h2>Courses</h2>
     <hr />
     <div class="table-responsive">
@@ -12,12 +12,16 @@
           </tr>
         </thead>
         <tbody>
-        {{#each courses}}
-          <tr>
-            <td><a href="/course/{{this.courseId}}">{{this.courseCode}}</a></td>
-            <td><a href="/students?course={{this.courseId}}">{{this.courseDescription}}</a></td>
-          </tr>
-        {{/each}}
+          {{#each courses}}
+            <tr>
+              <td><a
+                  href="/course/{{this.courseId}}"
+                >{{this.courseCode}}</a></td>
+              <td><a
+                  href="/students?course={{this.courseId}}"
+                >{{this.courseDescription}}</a></td>
+            </tr>
+          {{/each}}
         </tbody>
       </table>
     </div>

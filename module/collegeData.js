@@ -99,7 +99,7 @@ const getStudentsByCourse = (course) => {
       reject("no results");
     }
   });
-}
+};
 
 const getStudentByNum = (num) => {
   return new Promise((resolve, reject) => {
@@ -111,8 +111,8 @@ const getStudentByNum = (num) => {
     } else {
       reject("no results");
     }
-  })
-}
+  });
+};
 
 const getCourseById = (id) => {
   return new Promise((resolve, reject) => {
@@ -122,10 +122,10 @@ const getCourseById = (id) => {
       });
       resolve(courseById[0]);
     } else {
-      reject("query returned 0 result")
+      reject("query returned 0 result");
     }
-  })
-}
+  });
+};
 
 const addStudent = (studentData) => {
   return new Promise((resolve, reject) => {
@@ -137,8 +137,8 @@ const addStudent = (studentData) => {
     studentData.course = +studentData.course;
     studentData.studentNum = dataCollection.students.length + 1;
     resolve(dataCollection.students.push(studentData));
-  })
-}
+  });
+};
 
 const updateStudent = (studentData) => {
   return new Promise((resolve) => {
@@ -149,21 +149,27 @@ const updateStudent = (studentData) => {
     }
     studentData.studentNum = +studentData.studentNum;
     studentData.course = +studentData.course;
-    if (studentData.studentNum === dataCollection.students[studentData.studentNum - 1].studentNum) {
-      Object.assign(dataCollection.students[studentData.studentNum - 1], studentData);
+    if (
+      studentData.studentNum ===
+      dataCollection.students[studentData.studentNum - 1].studentNum
+    ) {
+      Object.assign(
+        dataCollection.students[studentData.studentNum - 1],
+        studentData
+      );
       resolve();
     }
-  })
-}
+  });
+};
 
-module.exports = { 
-  initialize, 
-  getAllStudents, 
+module.exports = {
+  initialize,
+  getAllStudents,
   // getTAs,
   getCourses,
   getCourseById,
-  getStudentsByCourse, 
+  getStudentsByCourse,
   getStudentByNum,
   addStudent,
-  updateStudent
+  updateStudent,
 };

@@ -3,116 +3,124 @@
 @import "shared/nav.css";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a {
-    color: var(--color-anchor);
+  color: var(--color-anchor);
 }
 
 a:hover {
-    color: var(--color-anchor-hover);
-    text-decoration: none;
+  color: var(--color-anchor-hover);
+  text-decoration: none;
 }
 
 body {
-    background: linear-gradient(
-        to right,
-        var(--color-background-dark),
-        var(--color-background-light)
-    );
-    background-size: cover;
-    font-family: "Gotham Rounded";
-    font-size: 1.5rem;
-    color: var(--color-text-light);
-    overflow: auto;
+  background: linear-gradient(
+    to right,
+    var(--color-background-dark),
+    var(--color-background-light)
+  );
+  background-size: cover;
+  font-family: "Gotham Rounded";
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  overflow: auto;
 }
 
-h1, h2, h3, h4, h5, h6, legend {
-    font-weight: bold;
-    color: var(--color-header);
-    text-shadow: 2px 2px var(--color-header-shadow);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend {
+  font-weight: bold;
+  color: var(--color-header);
+  text-shadow: 2px 2px var(--color-header-shadow);
 }
 
 .htmlDemoTable {
-    table-layout: fixed;
-    width: 100%;
-    font-size: 1.3rem;
+  table-layout: fixed;
+  width: 100%;
+  font-size: 1.3rem;
 }
-.htmlDemoTable .htmlDemoTable th, .htmlDemoTable td {
-    width: 25%;
-    padding: 10px;
+.htmlDemoTable .htmlDemoTable th,
+.htmlDemoTable td {
+  width: 25%;
+  padding: 10px;
 }
 
 .studentsTable {
-    font-size: 1rem;
-    width: 100%;
+  font-size: 1rem;
+  width: 100%;
 }
 
-.studentsTable th, .studentsTable td{
-    height: 3rem;
-    padding: 6px;
+.studentsTable th,
+.studentsTable td {
+  height: 3rem;
+  padding: 6px;
 }
 
 .coursesTable {
-    font-size: 1rem;
-    width: 100%;
+  font-size: 1rem;
+  width: 100%;
 }
 
-.coursesTable th, .coursesTable td{
-    height: 3rem;
-    padding-left: 1rem;
-    padding-right: 8rem;
+.coursesTable th,
+.coursesTable td {
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 8rem;
 }
 
-tbody tr:nth-child(odd){
-    background-color: var(--color-navbar-dark);
+tbody tr:nth-child(odd) {
+  background-color: var(--color-navbar-dark);
 }
 
 legend {
-    padding: 2rem 0;
-    font-size: 2rem;
+  padding: 2rem 0;
+  font-size: 2rem;
 }
 
 hr {
-    border: 1px solid var(--color-hr-dark);
+  border: 1px solid var(--color-hr-dark);
 }
 
 img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .navbar-dark .navbar-brand {
-    font-size: 2.5rem;
-    color: var(--color-header);
-    text-shadow: 2px 2px var(--color-header-shadow);
+  font-size: 2.5rem;
+  color: var(--color-header);
+  text-shadow: 2px 2px var(--color-header-shadow);
 }
 
 .vaultBoy {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .container {
-    margin: 0 auto;
-    padding-top: 1em;
-    padding-bottom: 1em;
+  margin: 0 auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .btn-primary {
-    background-color: var(--color-pri-btn);
-    border: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease 0s;
-    font-size: 1.3rem;
+  background-color: var(--color-pri-btn);
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease 0s;
+  font-size: 1.3rem;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-pri-btn-hover);
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    transform: translateY(-7px);
+  background-color: var(--color-pri-btn-hover);
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  transform: translateY(-7px);
 }
-
