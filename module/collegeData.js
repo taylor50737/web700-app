@@ -120,7 +120,11 @@ const getCourseById = (id) => {
       const courseById = dataCollection.courses.filter((el) => {
         return el.courseId === id;
       });
-      resolve(courseById[0]);
+      if (courseById.length !== 0) {
+        resolve(courseById[0]);
+      } else {
+        reject("query returned 0 result");
+      }
     } else {
       reject("query returned 0 result");
     }
