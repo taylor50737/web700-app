@@ -1,9 +1,7 @@
 <div class="row">
-  <div class="col-md-12">
-    <br>
-    <h2>{{course.courseDescription}}</h2>
-    <hr>
-    <form action="/course/update" method="POST">
+  <main class="col-md-12">
+    <!-- Start your code here -->
+    <form action="/courses/add" method="POST">
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
@@ -13,7 +11,6 @@
               id="courseCode"
               name="courseCode"
               type="text"
-              value="{{course.courseCode}}"
             >
           </div>
         </div>
@@ -25,25 +22,17 @@
               id="courseDescription"
               name="courseDescription"
               type="text"
-              value="{{course.courseDescription}}"
             >
           </div>
         </div>
       </div>
       <hr>
       <input
-              class="form-control"
-              id="courseId"
-              name="courseId"
-              type="hidden"
-              value="{{course.courseId}}"
-      >
-      <input type="submit" class="btn btn-primary float-right" value="Update Course"><br><br><br>
+        type="submit"
+        class="btn btn-primary float-right"
+        value="Add Course"
+      ><br><br><br>
     </form>
-  </div>
-  {{#unless course}}
-    <div class="col-md-12 text-center">
-      <strong>{{message}}</strong>
-    </div>
-  {{/unless}}
+    <!-- End your code here  -->
+  </main>
 </div>

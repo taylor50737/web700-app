@@ -18,13 +18,16 @@ const HTTP_PORT = process.env.PORT || 8080;
 const collegeData = require("./module/collegeData");
 const initialize = collegeData.initialize;
 const getAllStudents = collegeData.getAllStudents;
-// const getTAs = collegeData.getTAs;
 const getCourses = collegeData.getCourses;
 const getCourseById = collegeData.getCourseById;
 const getStudentsByCourse = collegeData.getStudentsByCourse;
 const getStudentByNum = collegeData.getStudentByNum;
 const addStudent = collegeData.addStudent;
 const updateStudent = collegeData.updateStudent;
+const addCourse = collegeData.addCourse;
+const updateCourse = collegeData.updateCourse;
+const deleteCourseById = collegeData.deleteCourseById;
+const deleteStudentByNum = collegeData.deleteStudentByNum;
 
 initialize()
   .then(() => {
@@ -93,15 +96,26 @@ initialize()
     });
 
     app.get("/students/add", (req, res) => {
-      res.render(__dirname + "/views/addStudent.hbs");
+      getCourses().then((data) => {
+        res.render("addStudent", {courses: data});
+      }).catch(() => {
+        res.render("addStudent",{courses: []});
+      })
+    });
+
+    app.get("/courses/add", (req, res) => {
+      res.render(__dirname + "/views/addCourse.hbs");
     });
 
     app.get("/students", (req, res) => {
       if (req.query.course) {
-        let courseNum = parseInt(req.query.course);
-        getStudentsByCourse(courseNum)
+        getStudentsByCourse(parseInt(req.query.course))
           .then((studentByCourse) => {
-            res.render("students", { students: studentByCourse });
+            if (studentByCourse.length > 0) {
+              res.render("students", { students: studentByCourse });
+            } else {
+              res.render("students",{ message: "no results" });
+            };
           })
           .catch((err) => {
             res.render("students", { message: err });
@@ -109,7 +123,11 @@ initialize()
       } else {
         getAllStudents()
           .then((allStudents) => {
-            res.render("students", { students: allStudents });
+            if (allStudents.length > 0) {
+              res.render("students", { students: allStudents });
+            } else {
+              res.render("students",{ message: "no results" });
+            };
           })
           .catch((err) => {
             res.render("students", { message: err });
@@ -117,20 +135,14 @@ initialize()
       }
     });
 
-    // app.get("/tas", (req, res) => {
-    //     getTAs()
-    //     .then((tas) => {
-    //         res.json(tas);
-    //     })
-    //     .catch((err) => {
-    //         res.json({ message: err });
-    //     });
-    // });
-
     app.get("/courses", (req, res) => {
       getCourses()
         .then((courses) => {
-          res.render("courses", { courses: courses });
+          if (courses.length > 0) {
+            res.render("courses", { courses: courses });
+          } else {
+            res.render("courses",{ message: "no results" });
+          }
         })
         .catch((err) => {
           res.render("courses", { message: err });
@@ -138,10 +150,13 @@ initialize()
     });
 
     app.get("/course/:id", (req, res) => {
-      let courseId = parseInt(req.params.id);
-      getCourseById(courseId)
+      getCourseById(parseInt(req.params.id))
         .then((courseById) => {
-          res.render("course", { course: courseById });
+          if (courseById === undefined) {
+            res.status(404).send("Course Not Found");
+          } else {
+            res.render("course", { course: courseById });
+          }
         })
         .catch((err) => {
           res.render("course", { message: err });
@@ -149,24 +164,73 @@ initialize()
     });
 
     app.get("/student/:num", (req, res) => {
-      let studentNum = parseInt(req.params.num);
-      getStudentByNum(studentNum)
-        .then((student) => {
-          res.render("student", { student });
-        })
-        .catch((err) => {
-          res.render("student", { message: err });
-        });
+      let viewData = {};
+
+      getStudentByNum(parseInt(req.params.num)).then((data) => {
+        if (data) {
+          viewData.student = data;
+        } else {
+          viewData.student = null;
+        }
+      }).catch(() => {
+        viewData.student = null;
+      }).then(getCourses)
+      .then((data) => {
+        viewData.courses = data;
+        for (let i = 0; i < viewData.courses.length; i++) {
+          if (viewData.courses[i].courseId == viewData.student.course) {
+            viewData.courses[i].selected = true;
+          }
+        }
+      }).catch(() => {
+        viewData.courses = [];
+      }).then(() => {
+        if (viewData.student == null) {
+          res.status(404).send("Student Not Found");
+        } else {
+          res.render("student", { viewData: viewData });
+        }
+      });
     });
 
     app.post("/students/add", (req, res) => {
-      const studentData = req.body;
-      addStudent(studentData).then(res.redirect("/students"));
+      addStudent(req.body).then(() => {
+        res.redirect("/students")
+      });
+    });
+
+    app.post("/courses/add", (req, res) => {
+      addCourse(req.body).then(res.redirect("/courses"))
     });
 
     app.post("/student/update", (req, res) => {
-      const studentData = req.body;
-      updateStudent(studentData).then(res.redirect("/students"));
+      updateStudent(req.body).then(res.redirect("/students")).catch(() => {
+        res.status(500).send("Unable to Update Course")
+      })
+    });
+
+    app.post("/course/update", (req, res) => {
+      updateCourse(req.body).then(res.redirect("/courses"))
+    });
+
+    app.get("/course/delete/:id", (req, res) => {
+      deleteCourseById(parseInt(req.params.id))
+        .then(() => {
+          res.redirect("/courses");
+        })
+        .catch(() => {
+          res.status(500).send("Unable to Remove Course / Course not found")
+        })
+    });
+
+    app.get("/student/delete/:studentNum", (req, res) => {
+      deleteStudentByNum(parseInt(req.params.studentNum))
+        .then(() => {
+          res.redirect("/students");
+        })
+        .catch(() => {
+          res.status(500).send("Unable to Remove Student / Student not found")
+        })
     });
 
     app.get("*", (req, res) => {
