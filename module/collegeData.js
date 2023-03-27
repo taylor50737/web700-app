@@ -23,8 +23,7 @@ const Student = sequelize.define('Student', {
   addressCity: Sequelize.STRING,
   addressProvince: Sequelize.STRING,
   TA: Sequelize.BOOLEAN,
-  status: Sequelize.STRING,
-  course: Sequelize.INTEGER
+  status: Sequelize.STRING
 }, {
   createdAt: false,
   updatedAt: false
@@ -128,7 +127,6 @@ const getCourseById = (id) => {
 const addStudent = (studentData) => {
   return new Promise((resolve, reject) => {
     studentData.TA = (studentData.TA) ? true : false;
-    studentData.course = +studentData.course;
     for (const prop in studentData) {
       if (studentData[prop] === "") {
         studentData[prop] = null;
