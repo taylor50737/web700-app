@@ -1,14 +1,14 @@
 /*********************************************************************************
- * WEB700 – Assignment 06  
- * I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this 
- * assignment has been copied manually or electronically from any other source (including web sites) or  
+ * WEB700 – Assignment 06
+ * I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
+ * assignment has been copied manually or electronically from any other source (including web sites) or
  * distributed to other students.
- * 
- * Name: Pak Hei Lo Student ID: 132631227 Date: 27 March 2023 
- * 
- * Online (Cyclic) Link: https://overalls-cygnet.cyclic.app/ 
- * 
- * ********************************************************************************/  
+ *
+ * Name: Pak Hei Lo Student ID: 132631227 Date: 7 April 2023
+ *
+ * Online (Cyclic) Link: https://overalls-cygnet.cyclic.app/
+ *
+ * ********************************************************************************/
 
 const express = require("express");
 const app = express();
@@ -96,11 +96,13 @@ initialize()
     });
 
     app.get("/students/add", (req, res) => {
-      getCourses().then((data) => {
-        res.render("addStudent", {courses: data});
-      }).catch(() => {
-        res.render("addStudent",{courses: []});
-      })
+      getCourses()
+        .then((data) => {
+          res.render("addStudent", { courses: data });
+        })
+        .catch(() => {
+          res.render("addStudent", { courses: [] });
+        });
     });
 
     app.get("/courses/add", (req, res) => {
@@ -114,8 +116,8 @@ initialize()
             if (studentByCourse.length > 0) {
               res.render("students", { students: studentByCourse });
             } else {
-              res.render("students",{ message: "no results" });
-            };
+              res.render("students", { message: "no results" });
+            }
           })
           .catch((err) => {
             res.render("students", { message: err });
@@ -126,8 +128,8 @@ initialize()
             if (allStudents.length > 0) {
               res.render("students", { students: allStudents });
             } else {
-              res.render("students",{ message: "no results" });
-            };
+              res.render("students", { message: "no results" });
+            }
           })
           .catch((err) => {
             res.render("students", { message: err });
@@ -141,7 +143,7 @@ initialize()
           if (courses.length > 0) {
             res.render("courses", { courses: courses });
           } else {
-            res.render("courses",{ message: "no results" });
+            res.render("courses", { message: "no results" });
           }
         })
         .catch((err) => {
@@ -166,51 +168,58 @@ initialize()
     app.get("/student/:num", (req, res) => {
       let viewData = {};
 
-      getStudentByNum(parseInt(req.params.num)).then((data) => {
-        if (data) {
-          viewData.student = data;
-        } else {
-          viewData.student = null;
-        }
-      }).catch(() => {
-        viewData.student = null;
-      }).then(getCourses)
-      .then((data) => {
-        viewData.courses = data;
-        for (let i = 0; i < viewData.courses.length; i++) {
-          if (viewData.courses[i].courseId == viewData.student.course) {
-            viewData.courses[i].selected = true;
+      getStudentByNum(parseInt(req.params.num))
+        .then((data) => {
+          if (data) {
+            viewData.student = data;
+          } else {
+            viewData.student = null;
           }
-        }
-      }).catch(() => {
-        viewData.courses = [];
-      }).then(() => {
-        if (viewData.student == null) {
-          res.status(404).send("Student Not Found");
-        } else {
-          res.render("student", { viewData: viewData });
-        }
-      });
+        })
+        .catch(() => {
+          viewData.student = null;
+        })
+        .then(getCourses)
+        .then((data) => {
+          viewData.courses = data;
+          for (let i = 0; i < viewData.courses.length; i++) {
+            if (viewData.courses[i].courseId == viewData.student.course) {
+              viewData.courses[i].selected = true;
+            }
+          }
+        })
+        .catch(() => {
+          viewData.courses = [];
+        })
+        .then(() => {
+          if (viewData.student == null) {
+            res.status(404).send("Student Not Found");
+          } else {
+            res.render("student", { viewData: viewData });
+          }
+        });
     });
 
     app.post("/students/add", (req, res) => {
       addStudent(req.body).then(() => {
-        res.redirect("/students")
+        res.redirect("/students");
       });
     });
 
     app.post("/courses/add", (req, res) => {
-      addCourse(req.body).then(res.redirect("/courses"))
+      addCourse(req.body).then(res.redirect("/courses"));
     });
 
     app.post("/student/update", (req, res) => {
-      updateStudent(req.body).then(res.redirect("/students")).catch(() => {
-        res.status(500).send("Unable to Update Course")
-      })
+      updateStudent(req.body)
+        .then(res.redirect("/students"))
+        .catch(() => {
+          res.status(500).send("Unable to Update Course");
+        });
     });
 
     app.post("/course/update", (req, res) => {
-      updateCourse(req.body).then(res.redirect("/courses"))
+      updateCourse(req.body).then(res.redirect("/courses"));
     });
 
     app.get("/course/delete/:id", (req, res) => {
@@ -219,8 +228,8 @@ initialize()
           res.redirect("/courses");
         })
         .catch(() => {
-          res.status(500).send("Unable to Remove Course / Course not found")
-        })
+          res.status(500).send("Unable to Remove Course / Course not found");
+        });
     });
 
     app.get("/student/delete/:studentNum", (req, res) => {
@@ -229,8 +238,8 @@ initialize()
           res.redirect("/students");
         })
         .catch(() => {
-          res.status(500).send("Unable to Remove Student / Student not found")
-        })
+          res.status(500).send("Unable to Remove Student / Student not found");
+        });
     });
 
     app.get("*", (req, res) => {
