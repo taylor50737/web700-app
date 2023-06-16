@@ -1,6 +1,6 @@
 :root {
   /* You can change the color of whole website by only changing the color-base-hue variable */
-  --color-base-hue: 200;
+  --color-base-hue: 180;
   --color-header: hsl(var(--color-base-hue), 100%, 80%);
   --color-header-shadow: hsl(var(--color-base-hue), 100%, 30%);
   --color-anchor: hsl(var(--color-base-hue), 100%, 40%);
